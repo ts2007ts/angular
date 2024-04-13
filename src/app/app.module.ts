@@ -10,6 +10,7 @@ import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './container/search/search.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from './container/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     TopMenuComponent,
     ContainerComponent,
     SearchComponent,
-    TopHeaderComponent
+    TopHeaderComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
