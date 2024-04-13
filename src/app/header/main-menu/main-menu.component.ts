@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class MainMenuComponent {
 
+  mainMenu: string[] = [
+    'Home',
+    'Product',
+    'About',
+    'Sale',
+    'New Arrival',
+    'Contact'
+  ];
+
 }
