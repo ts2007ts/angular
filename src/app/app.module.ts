@@ -11,6 +11,7 @@ import { SearchComponent } from './container/search/search.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './container/product-list/product-list.component';
+import { ProductComponent } from './container/product-list/product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductListComponent } from './container/product-list/product-list.comp
     ContainerComponent,
     SearchComponent,
     TopHeaderComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
