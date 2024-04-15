@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-container',
@@ -41,4 +41,10 @@ export class ContainerComponent {
   //   }
 
   // }
+
+  searchText: string = '';
+
+  setSearchText(event: string) {
+    this.searchText = event;
+  }
 }
