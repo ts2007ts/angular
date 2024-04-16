@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { ProductListComponent } from './product-list/product-list.component';
+import { Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-container',
@@ -43,6 +44,12 @@ export class ContainerComponent {
   // }
 
   searchText: string = '';
+
+  // @ViewChild('productListComponent')
+  // productListComponent: ProductListComponent;
+
+  @ViewChild(ProductListComponent)
+  productListComponent: ProductListComponent;
 
   setSearchText(event: string) {
     this.searchText = event;

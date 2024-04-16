@@ -11,7 +11,9 @@
   <input (input)="onNameChange($event)"><br>
   <p>name={{product.name}}</p> -->
   <app-search (searchTextChange)="setSearchText($event)"></app-search>
-  <app-product-list [searchText]="searchText"></app-product-list>
+  <app-product-list [searchText]="searchText" #productListComponent></app-product-list>
+  <app-product-detail [productListComponent]="productListComponent"
+    *ngIf="productListComponent.selectedProduct"></app-product-detail>
 </div>
 
 <!--Disabled, Hidden, Checked-->
