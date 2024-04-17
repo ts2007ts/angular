@@ -7,9 +7,24 @@ import { Component } from '@angular/core';
 })
 export class LifeCycleHookComponent {
 
-  constructor() {
-    console.log('Life Cycle Hook Component Constructor called ! ');
+  inputVal: string = '';
+  toDestroy: boolean = false;
 
+  constructor() {
+    console.log('Life Cycle Hook Component Constructor called! ');
+
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit of LifeCycleHookComponent Hook Called! ');
+  }
+
+  onBtnClick(inputEl: HTMLInputElement) {
+    this.inputVal = inputEl.value;
+  }
+
+  destroyComponent() {
+    this.toDestroy = !this.toDestroy;
   }
 
 }
