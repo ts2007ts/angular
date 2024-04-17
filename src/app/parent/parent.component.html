@@ -1,0 +1,21 @@
+<div>
+  <app-child>
+    <h3>Some Heading</h3>
+    <p #para>
+      para 1 para 1 para 1
+    </p>
+
+    <p #para>
+      para 2 para 2 para 2
+    </p>
+
+    <p #para>
+      para 3 para 3 para 3
+    </p>
+
+    <app-test #test [name]="'Name 1'"></app-test>
+    <app-test #test [name]="'Name 2'"></app-test>
+    <app-test #test [name]="'Name 3'"></app-test>
+  </app-child>
+  <button (click)="showPar()">Click me parent</button>
+</div>

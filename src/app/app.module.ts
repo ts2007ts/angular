@@ -14,6 +14,15 @@ import { ProductListComponent } from './container/product-list/product-list.comp
 import { ProductComponent } from './container/product-list/product/product.component';
 import { FilterComponent } from './container/product-list/filter/filter.component';
 import { ProductDetailComponent } from './container/product-detail/product-detail.component';
+import { ViewChildrenComponent } from './view-children/view-children.component';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
+import { NgContainerComponent } from './ng-container/ng-container.component';
+import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './parent/child/child.component';
+import { TestComponent } from './test/test.component';
+import { LifeCycleHookComponent } from './life-cycle-hook/life-cycle-hook.component';
+import { DemoComponent } from './life-cycle-hook/demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +36,16 @@ import { ProductDetailComponent } from './container/product-detail/product-detai
     ProductListComponent,
     ProductComponent,
     FilterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ViewChildrenComponent,
+    NgTemplateComponent,
+    NgContainerComponent,
+    FeaturedBrandsComponent,
+    ParentComponent,
+    ChildComponent,
+    TestComponent,
+    LifeCycleHookComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
