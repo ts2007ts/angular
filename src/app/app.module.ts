@@ -23,6 +23,12 @@ import { ChildComponent } from './parent/child/child.component';
 import { TestComponent } from './test/test.component';
 import { LifeCycleHookComponent } from './life-cycle-hook/life-cycle-hook.component';
 import { DemoComponent } from './life-cycle-hook/demo/demo.component';
+import { SetBackgroundDirective } from './Directives/set-background.directive';
+import { HighlightDirective } from './Directives/highlight.directive';
+import { HoverDirective } from './Directives/hover.directive';
+import { DifferenceBetweenPropertyAndHostBindingComponent } from './difference-between-property-and-host-binding/difference-between-property-and-host-binding.component';
+import { SampleDirective } from './Directives/sample.directive';
+import { SortAlgorithmsComponent } from './sort-algorithms/sort-algorithms.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,13 @@ import { DemoComponent } from './life-cycle-hook/demo/demo.component';
     ChildComponent,
     TestComponent,
     LifeCycleHookComponent,
-    DemoComponent
+    DemoComponent,
+    SetBackgroundDirective,
+    HighlightDirective,
+    HoverDirective,
+    DifferenceBetweenPropertyAndHostBindingComponent,
+    SampleDirective,
+    SortAlgorithmsComponent
   ],
   imports: [
     BrowserModule,

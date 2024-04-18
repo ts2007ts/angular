@@ -11,8 +11,6 @@ export class MainMenuComponent {
     'Home',
     'Product',
     'About',
-    'Sale',
-    'New Arrival',
     'Contact'
   ];
 
