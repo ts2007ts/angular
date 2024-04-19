@@ -31,6 +31,9 @@ import { SampleDirective } from './Directives/sample.directive';
 import { SortAlgorithmsComponent } from './sort-algorithms/sort-algorithms.component';
 import { EightQueensProblemComponent } from './eight-queens-problem/eight-queens-problem.component';
 import { KnightTourProblemComponent } from './knight-tour-problem/knight-tour-problem.component';
+import { WordBreakProblemComponent } from './word-break-problem/word-break-problem.component';
+import { RemoveInvalidParenthesesComponent } from './remove-invalid-parentheses/remove-invalid-parentheses.component';
+import { MatchAPatternAndStringWithoutUsingRegularExpressionsComponent } from './match-apattern-and-string-without-using-regular-expressions/match-apattern-and-string-without-using-regular-expressions.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { KnightTourProblemComponent } from './knight-tour-problem/knight-tour-pr
     SampleDirective,
     SortAlgorithmsComponent,
     EightQueensProblemComponent,
-    KnightTourProblemComponent
+    KnightTourProblemComponent,
+    WordBreakProblemComponent,
+    RemoveInvalidParenthesesComponent,
+    MatchAPatternAndStringWithoutUsingRegularExpressionsComponent
   ],
   imports: [
     BrowserModule,

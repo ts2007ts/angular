@@ -97,6 +97,8 @@ export class KnightTourProblemComponent implements OnInit {
 
     // Function Call
     this.solveKT();
+
+    //Time complexity: O(N^3)
   }
 
 

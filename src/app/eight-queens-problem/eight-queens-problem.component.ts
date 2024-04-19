@@ -71,6 +71,9 @@ export class EightQueensProblemComponent implements OnInit {
     if (!this.solveNQueens(board, 0)) {
       console.log("No solution found");
     }
+
+    //Time Complexity: O(N!),
+    //where N is the size of the chessboard.
   }
 
 

@@ -121,6 +121,8 @@ export class SortAlgorithmsComponent implements OnInit {
     }
 
     console.log('selectionSort ' + array);
+
+    //Time Complexity: The time complexity of Selection Sort is O(N^2)
   }
 
   bubbleSort(array: number[]) {
@@ -140,6 +142,8 @@ export class SortAlgorithmsComponent implements OnInit {
         break;
     }
     console.log('bubbleSort ' + array);
+
+    //Time Complexity: O(N^2)
   }
 
   insertionSort(array: number[]) {
@@ -155,6 +159,8 @@ export class SortAlgorithmsComponent implements OnInit {
       array[j + 1] = key;
     }
     console.log('insertionSort ' + array);
+
+    //Time Complexity: O(N^2)
   }
 
   mergeSort(array: number[], l: number, r: number) {
@@ -169,6 +175,8 @@ export class SortAlgorithmsComponent implements OnInit {
     this.merge(array, l, m, r);
 
     console.log('mergeSort ' + array);
+
+    //Worst Case: O(n log n), When the array is sorted in reverse order.
   }
 
   quickSort(arr: number[], low: number, high: number) {
@@ -183,6 +191,8 @@ export class SortAlgorithmsComponent implements OnInit {
 
     }
     console.log('quickSort ' + arr);
+
+    //Worst Case: O(N^2)
   }
 
   heapSort(arr: number[], N: number, i: number) {
@@ -208,7 +218,7 @@ export class SortAlgorithmsComponent implements OnInit {
       this.heapSort(arr, N, largest);
     }
 
-
+    //Time Complexity: O(N log N)
   }
 
 
