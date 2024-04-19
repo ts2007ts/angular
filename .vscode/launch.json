@@ -3,6 +3,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "GFG",
+      "request": "launch",
+      "mainClass": "GFG",
+      "projectName": "angular-general-course_cd6c2dde"
+    },
+    {
+      "type": "java",
+      "name": "TestClass",
+      "request": "launch",
+      "mainClass": "TestClass",
+      "projectName": "angular-general-course_cd6c2dde"
+    },
+    {
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",
