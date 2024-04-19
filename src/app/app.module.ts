@@ -29,6 +29,8 @@ import { HoverDirective } from './Directives/hover.directive';
 import { DifferenceBetweenPropertyAndHostBindingComponent } from './difference-between-property-and-host-binding/difference-between-property-and-host-binding.component';
 import { SampleDirective } from './Directives/sample.directive';
 import { SortAlgorithmsComponent } from './sort-algorithms/sort-algorithms.component';
+import { EightQueensProblemComponent } from './eight-queens-problem/eight-queens-problem.component';
+import { KnightTourProblemComponent } from './knight-tour-problem/knight-tour-problem.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { SortAlgorithmsComponent } from './sort-algorithms/sort-algorithms.compo
     HoverDirective,
     DifferenceBetweenPropertyAndHostBindingComponent,
     SampleDirective,
-    SortAlgorithmsComponent
+    SortAlgorithmsComponent,
+    EightQueensProblemComponent,
+    KnightTourProblemComponent
   ],
   imports: [
     BrowserModule,
