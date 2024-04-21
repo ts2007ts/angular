@@ -77,3 +77,8 @@
   box-shadow: 10px 10px 18px #cccccc;
   transform: scale(1.05);
 }
+
+.disable-out-of-stock-product {
+  background-color: #28282B;
+  opacity: 0.5;
+}

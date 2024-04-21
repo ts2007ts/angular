@@ -1,0 +1,16 @@
+<h2>Custom Class & Styles Directive</h2>
+<div [appCustomClass]="{'app-container': true, appHighlight: false, appFont: 5 > 2}">
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, eius animi assumenda autem voluptatibus quisquam
+    architecto, consectetur doloremque, voluptate veritatis earum. Quis ab vero ipsam. Asperiores odit cumque adipisci
+    recusandae!
+  </p>
+</div>
+
+<div appCustomStyle [style]="{ backgroundColor: active ?  'green' : 'red', color: 'black'}">
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, eius animi assumenda autem voluptatibus quisquam
+    architecto, consectetur doloremque, voluptate veritatis earum. Quis ab vero ipsam. Asperiores odit cumque adipisci
+    recusandae!
+  </p>
+</div>

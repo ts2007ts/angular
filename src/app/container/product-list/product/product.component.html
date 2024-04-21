@@ -1,5 +1,5 @@
 <!-- this div is the host -->
-<div class="ekart--product--item" appHighlight>
+<div class="ekart--product--item" appHighlight [appDisableProduct]="!product.is_in_inventory">
   <div class="ekart-wishlist-sale-container">
     <div class="ekart--add--to--wishlist">
       <i class="fa fa-heart-o" aria-hidden="true"></i>

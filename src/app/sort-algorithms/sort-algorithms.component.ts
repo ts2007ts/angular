@@ -7,15 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SortAlgorithmsComponent implements OnInit {
 
-  swap(array, j, i) {
-    var temp = array[j];
-    array[j] = array[i];
-    array[i] = temp;
-  }
+  mergeSortTimesToEnter: number = 0;
+  mergeTimesToEnter: number = 0;
+
 
   merge(arr: number[], l: number, m: number, r: number) {
+
+    this.mergeTimesToEnter++;
+    console.log('merge times to enter ' + this.mergeTimesToEnter);
+    console.log('L = ' + l, 'M = ' + m, 'R = ' + r);
     var n1 = m - l + 1;
     var n2 = r - m;
+
+    console.log('Left side array length is ' + n1, 'Right side array length ' + n2);
 
     // Create temp arrays
     var L = new Array(n1);
@@ -111,19 +115,27 @@ export class SortAlgorithmsComponent implements OnInit {
 
 
   selectionSort(array: number[]) {
-    let arrayLength = array.length;
-    for (let i = 0; i < arrayLength - 1; i++) {
-      for (let j = i + 1; j < arrayLength; j++) {
-        if (array[i] > array[j]) {
-          this.swap(array, j, i);
+    let n = array.length;
+    //console.log(n);
+
+    for (let i = 0; i < n - 1; i++) {
+      let min_idx = i;
+      for (let j = i + 1; j < n; j++) {
+        if (array[j] < array[min_idx]) {
+          min_idx = j;
         }
+        // Swap the found minimum element with the first element
+        var temp = array[min_idx];
+        array[min_idx] = array[i];
+        array[i] = temp;
       }
     }
-
     console.log('selectionSort ' + array);
-
     //Time Complexity: The time complexity of Selection Sort is O(N^2)
   }
+
+
+
 
   bubbleSort(array: number[]) {
     let n = array.length;
@@ -164,12 +176,20 @@ export class SortAlgorithmsComponent implements OnInit {
   }
 
   mergeSort(array: number[], l: number, r: number) {
+
+    console.log('Given Array is ' + '[' + array + ']');
+
+    this.mergeSortTimesToEnter++;
+    console.log('merge sort times to enter ' + this.mergeSortTimesToEnter);
+
     if (l >= r) {
+      console.log('if (l >= r)' + 'L = ' + l, 'R = ' + r);
       return;
     }
     //console.log(Math.floor((r - l) / 2));
 
     var m = l + Math.floor((r - l) / 2);
+    console.log('L = ' + l, 'M = ' + m, 'L = ' + r);
     this.mergeSort(array, l, m);
     this.mergeSort(array, m + 1, r);
     this.merge(array, l, m, r);
@@ -223,22 +243,22 @@ export class SortAlgorithmsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.selectionSort([64, 25, 12, 22, 11]);
+    //this.selectionSort([64, 25, 12, 22, 11]);
 
-    this.bubbleSort([64, 25, 12, 22, 11]);
+    //this.bubbleSort([64, 25, 12, 22, 11]);
 
-    this.insertionSort([64, 25, 12, 22, 11]);
+    //this.insertionSort([64, 25, 12, 22, 11]);
 
-    var arrToMergeSort = [12, 11, 13, 5, 6, 7];
-    var arr_size = arrToMergeSort.length;
-    this.mergeSort(arrToMergeSort, 0, arr_size - 1);
+    // var arrToMergeSort = [3, 2, 1, 6, 5, 4];
+    // var arr_size = arrToMergeSort.length;
+    // this.mergeSort(arrToMergeSort, 0, arr_size - 1);
 
-    let arrToQuickSort = [10, 7, 8, 9, 1, 5];
+    let arrToQuickSort = [3, 2, 1, 6, 5, 4];
     let N = arrToQuickSort.length;
     this.quickSort(arrToQuickSort, 0, N - 1);
 
-    var arrToHeapSort = [12, 11, 13, 5, 6, 7];
-    this.sort(arrToHeapSort);
+    // var arrToHeapSort = [12, 11, 13, 5, 6, 7];
+    // this.sort(arrToHeapSort);
 
 
   }

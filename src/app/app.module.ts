@@ -34,6 +34,10 @@ import { KnightTourProblemComponent } from './knight-tour-problem/knight-tour-pr
 import { WordBreakProblemComponent } from './word-break-problem/word-break-problem.component';
 import { RemoveInvalidParenthesesComponent } from './remove-invalid-parentheses/remove-invalid-parentheses.component';
 import { MatchAPatternAndStringWithoutUsingRegularExpressionsComponent } from './match-apattern-and-string-without-using-regular-expressions/match-apattern-and-string-without-using-regular-expressions.component';
+import { DisableProductDirective } from './Directives/disable-product.directive';
+import { CustomClassAndStyleComponent } from './custom-class-and-style/custom-class-and-style.component';
+import { CustomClassDirective } from './Directives/custom-class.directive';
+import { CustomStyleDirective } from './Directives/custom-style.directive';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { MatchAPatternAndStringWithoutUsingRegularExpressionsComponent } from '.
     KnightTourProblemComponent,
     WordBreakProblemComponent,
     RemoveInvalidParenthesesComponent,
-    MatchAPatternAndStringWithoutUsingRegularExpressionsComponent
+    MatchAPatternAndStringWithoutUsingRegularExpressionsComponent,
+    DisableProductDirective,
+    CustomClassAndStyleComponent,
+    CustomClassDirective,
+    CustomStyleDirective
   ],
   imports: [
     BrowserModule,
