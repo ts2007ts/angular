@@ -1,0 +1,22 @@
+.app-component {
+  text-align: center;
+  border: black 2px solid;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.component-container {
+  display: flex;
+  text-align: center;
+}
+
+button {
+  width: 120px;
+  border: none;
+  font-weight: 30px;
+  text-align: center;
+  background-color: coral;
+}

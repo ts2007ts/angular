@@ -41,6 +41,9 @@ import { CustomStyleDirective } from './Directives/custom-style.directive';
 import { CustomStructuralDirectiveComponent } from './custom-structural-directive/custom-structural-directive.component';
 import { CustomIfDirective } from './Directives/custom-if.directive';
 import { SwitchDirectiveComponent } from './switch-directive/switch-directive.component';
+import { ViewEncapsulationComponent } from './view-encapsulation/view-encapsulation.component';
+import { Comp1Component } from './view-encapsulation/comp1/comp1.component';
+import { Comp2Component } from './view-encapsulation/comp2/comp2.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { SwitchDirectiveComponent } from './switch-directive/switch-directive.co
     CustomStyleDirective,
     CustomStructuralDirectiveComponent,
     CustomIfDirective,
-    SwitchDirectiveComponent
+    SwitchDirectiveComponent,
+    ViewEncapsulationComponent,
+    Comp1Component,
+    Comp2Component,
   ],
   imports: [
     BrowserModule,
