@@ -1,0 +1,39 @@
+<div class="notice-container">
+  <div class="notice-header">
+    <button (click)="onClick('info')">Info</button>
+    <button (click)="onClick('service')">Service</button>
+    <button (click)="onClick('privacy')">Privacy</button>
+    <button (click)="onClick('user')">User Agreement</button>
+  </div>
+
+  <div class="notice-body" [ngSwitch]="tab">
+    <div *ngSwitchDefault>
+      <h1>Terms of services & privacy policy</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente expedita natus repellat, minima quibusdam hic
+        sed? Incidunt saepe ea alias ab quos atque, molestias dolores voluptates quam, velit quia quae.</p>
+
+    </div>
+
+    <div *ngSwitchCase="'service'">
+      <h2>Terms of services </h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus in voluptates praesentium, magnam eum eius quas
+        eos mollitia, dolores vel delectus modi temporibus fugit explicabo quasi! Laboriosam ea laudantium aperiam?</p>
+    </div>
+
+    <div *ngSwitchCase="'privacy'">
+      <h2>Privacy Policy</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, eligendi deserunt odit id molestias
+        impedit et vero cupiditate aspernatur est quos maiores ex. Laboriosam qui necessitatibus exercitationem officiis
+        harum saepe!</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima natus ex itaque veniam, eveniet iusto
+        voluptatibus assumenda deserunt libero dolores vel porro incidunt fugiat ullam ipsum exercitationem ratione!
+        Molestias, est!</p>
+    </div>
+    <div *ngSwitchCase="'user'">
+      <h2>User agreement</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eligendi, nesciunt minus in sit animi
+        perspiciatis accusamus sequi deleniti facilis molestiae repudiandae omnis sint deserunt laborum consectetur rem.
+        Blanditiis, temporibus?</p>
+    </div>
+  </div>
+</div>

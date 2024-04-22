@@ -40,6 +40,7 @@ import { CustomClassDirective } from './Directives/custom-class.directive';
 import { CustomStyleDirective } from './Directives/custom-style.directive';
 import { CustomStructuralDirectiveComponent } from './custom-structural-directive/custom-structural-directive.component';
 import { CustomIfDirective } from './Directives/custom-if.directive';
+import { SwitchDirectiveComponent } from './switch-directive/switch-directive.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { CustomIfDirective } from './Directives/custom-if.directive';
     CustomClassDirective,
     CustomStyleDirective,
     CustomStructuralDirectiveComponent,
-    CustomIfDirective
+    CustomIfDirective,
+    SwitchDirectiveComponent
   ],
   imports: [
     BrowserModule,
