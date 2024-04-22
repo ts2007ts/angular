@@ -51,6 +51,7 @@ import { HeroComponent } from './angular-services-and-dependency-injection/heade
 import { SidebarComponent } from './angular-services-and-dependency-injection/header/home/sidebar/sidebar.component';
 import { UserDetailComponent } from './angular-services-and-dependency-injection/header/admin/user-detail/user-detail.component';
 import { UserListComponent } from './angular-services-and-dependency-injection/header/admin/user-list/user-list.component';
+import { ServiceHeaderComponent } from './angular-services-and-dependency-injection/header/header.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { UserListComponent } from './angular-services-and-dependency-injection/h
     SidebarComponent,
     UserDetailComponent,
     UserListComponent,
+    ServiceHeaderComponent
   ],
   imports: [
     BrowserModule,
