@@ -44,6 +44,13 @@ import { SwitchDirectiveComponent } from './switch-directive/switch-directive.co
 import { ViewEncapsulationComponent } from './view-encapsulation/view-encapsulation.component';
 import { Comp1Component } from './view-encapsulation/comp1/comp1.component';
 import { Comp2Component } from './view-encapsulation/comp2/comp2.component';
+import { AngularServicesAndDependencyInjectionComponent } from './angular-services-and-dependency-injection/angular-services-and-dependency-injection.component';
+import { HomeComponent } from './angular-services-and-dependency-injection/header/home/home.component';
+import { AdminComponent } from './angular-services-and-dependency-injection/header/admin/admin.component';
+import { HeroComponent } from './angular-services-and-dependency-injection/header/home/hero/hero.component';
+import { SidebarComponent } from './angular-services-and-dependency-injection/header/home/sidebar/sidebar.component';
+import { UserDetailComponent } from './angular-services-and-dependency-injection/header/admin/user-detail/user-detail.component';
+import { UserListComponent } from './angular-services-and-dependency-injection/header/admin/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +95,13 @@ import { Comp2Component } from './view-encapsulation/comp2/comp2.component';
     ViewEncapsulationComponent,
     Comp1Component,
     Comp2Component,
+    AngularServicesAndDependencyInjectionComponent,
+    HomeComponent,
+    AdminComponent,
+    HeroComponent,
+    SidebarComponent,
+    UserDetailComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
