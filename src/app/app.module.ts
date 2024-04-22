@@ -38,6 +38,8 @@ import { DisableProductDirective } from './Directives/disable-product.directive'
 import { CustomClassAndStyleComponent } from './custom-class-and-style/custom-class-and-style.component';
 import { CustomClassDirective } from './Directives/custom-class.directive';
 import { CustomStyleDirective } from './Directives/custom-style.directive';
+import { CustomStructuralDirectiveComponent } from './custom-structural-directive/custom-structural-directive.component';
+import { CustomIfDirective } from './Directives/custom-if.directive';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { CustomStyleDirective } from './Directives/custom-style.directive';
     DisableProductDirective,
     CustomClassAndStyleComponent,
     CustomClassDirective,
-    CustomStyleDirective
+    CustomStyleDirective,
+    CustomStructuralDirectiveComponent,
+    CustomIfDirective
   ],
   imports: [
     BrowserModule,
