@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +52,12 @@ import { SidebarComponent } from './angular-services-and-dependency-injection/he
 import { UserDetailComponent } from './angular-services-and-dependency-injection/header/admin/user-detail/user-detail.component';
 import { UserListComponent } from './angular-services-and-dependency-injection/header/admin/user-list/user-list.component';
 import { ServiceHeaderComponent } from './angular-services-and-dependency-injection/header/header.component';
+import { UserService } from './angular-services-and-dependency-injection/Services/user.service';
+import { ObservablesAndRxJSComponent } from './observables-and-rx-js/observables-and-rx-js.component';
+import { NewTaskComponent } from './observables-and-rx-js/new-task/new-task.component';
+import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.component';
+
+//export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
 @NgModule({
   declarations: [
@@ -103,7 +109,10 @@ import { ServiceHeaderComponent } from './angular-services-and-dependency-inject
     SidebarComponent,
     UserDetailComponent,
     UserListComponent,
-    ServiceHeaderComponent
+    ServiceHeaderComponent,
+    ObservablesAndRxJSComponent,
+    NewTaskComponent,
+    ShowTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +120,7 @@ import { ServiceHeaderComponent } from './angular-services-and-dependency-inject
     FormsModule
   ],
   providers: [],
+  //providers: [{provide: USER_TOKEN, useClass: UserService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
