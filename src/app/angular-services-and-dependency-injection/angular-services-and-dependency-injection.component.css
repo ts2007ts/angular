@@ -46,6 +46,7 @@ button {
   padding: 12px 30px;
   border: none;
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
 
 .header-button {
