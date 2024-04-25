@@ -35,4 +35,5 @@ button {
   border: none;
   background-color: #EE3915;
   color: white;
+  cursor: pointer;
 }
