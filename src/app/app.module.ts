@@ -56,6 +56,7 @@ import { UserService } from './angular-services-and-dependency-injection/Service
 import { ObservablesAndRxJSComponent } from './observables-and-rx-js/observables-and-rx-js.component';
 import { NewTaskComponent } from './observables-and-rx-js/new-task/new-task.component';
 import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.component';
+import { SubjectComponent } from './observables-and-rx-js/subject/subject.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -112,7 +113,8 @@ import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.c
     ServiceHeaderComponent,
     ObservablesAndRxJSComponent,
     NewTaskComponent,
-    ShowTaskComponent
+    ShowTaskComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserModule,
