@@ -57,6 +57,8 @@ import { ObservablesAndRxJSComponent } from './observables-and-rx-js/observables
 import { NewTaskComponent } from './observables-and-rx-js/new-task/new-task.component';
 import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.component';
 import { SubjectComponent } from './observables-and-rx-js/subject/subject.component';
+import { PromiseVsObservableComponent } from './observables-and-rx-js/promise-vs-observable/promise-vs-observable.component';
+import { UnsubscribeComponent } from './observables-and-rx-js/unsubscribe/unsubscribe.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -114,7 +116,9 @@ import { SubjectComponent } from './observables-and-rx-js/subject/subject.compon
     ObservablesAndRxJSComponent,
     NewTaskComponent,
     ShowTaskComponent,
-    SubjectComponent
+    SubjectComponent,
+    PromiseVsObservableComponent,
+    UnsubscribeComponent
   ],
   imports: [
     BrowserModule,
