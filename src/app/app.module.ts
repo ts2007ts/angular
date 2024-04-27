@@ -59,6 +59,11 @@ import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.c
 import { SubjectComponent } from './observables-and-rx-js/subject/subject.component';
 import { PromiseVsObservableComponent } from './observables-and-rx-js/promise-vs-observable/promise-vs-observable.component';
 import { UnsubscribeComponent } from './observables-and-rx-js/unsubscribe/unsubscribe.component';
+import { AngularDynamicComponentsComponent } from './angular-dynamic-components/angular-dynamic-components.component';
+import { UsersComponent } from './angular-dynamic-components/users/users.component';
+import { ConfirmDeleteComponent } from './angular-dynamic-components/users/confirm-delete/confirm-delete.component';
+import { HomeDynamicComponentComponent } from './angular-dynamic-components/home-dynamic-component/home-dynamic-component.component';
+import { ViewContainerDirective } from './angular-dynamic-components/Directives/view-container.directive';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -118,7 +123,12 @@ import { UnsubscribeComponent } from './observables-and-rx-js/unsubscribe/unsubs
     ShowTaskComponent,
     SubjectComponent,
     PromiseVsObservableComponent,
-    UnsubscribeComponent
+    UnsubscribeComponent,
+    AngularDynamicComponentsComponent,
+    UsersComponent,
+    ConfirmDeleteComponent,
+    HomeDynamicComponentComponent,
+    ViewContainerDirective
   ],
   imports: [
     BrowserModule,
@@ -127,6 +137,6 @@ import { UnsubscribeComponent } from './observables-and-rx-js/unsubscribe/unsubs
   ],
   providers: [],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
