@@ -64,6 +64,22 @@ import { UsersComponent } from './angular-dynamic-components/users/users.compone
 import { ConfirmDeleteComponent } from './angular-dynamic-components/users/confirm-delete/confirm-delete.component';
 import { HomeDynamicComponentComponent } from './angular-dynamic-components/home-dynamic-component/home-dynamic-component.component';
 import { ViewContainerDirective } from './angular-dynamic-components/Directives/view-container.directive';
+import { AngularRouterAndRouteGuardsComponent } from './angular-router-and-route-guards/angular-router-and-route-guards.component';
+import { AboutRouterComponent } from './angular-router-and-route-guards/about-router/about-router.component';
+import { CheckoutRouterComponent } from './angular-router-and-route-guards/checkout-router/checkout-router.component';
+import { ContactRouterComponent } from './angular-router-and-route-guards/contact-router/contact-router.component';
+import { CoursesRouterComponent } from './angular-router-and-route-guards/courses-router/courses-router.component';
+import { FooterRouterComponent } from './angular-router-and-route-guards/footer-router/footer-router.component';
+import { HeaderRouterComponent } from './angular-router-and-route-guards/header-router/header-router.component';
+import { HomeRouterComponent } from './angular-router-and-route-guards/home-router/home-router.component';
+import { LoginRouterComponent } from './angular-router-and-route-guards/login-router/login-router.component';
+import { NotFoundRouterComponent } from './angular-router-and-route-guards/not-found-router/not-found-router.component';
+import { CourseDetailComponent } from './angular-router-and-route-guards/courses-router/course-detail/course-detail.component';
+import { BannerComponent } from './angular-router-and-route-guards/home-router/banner/banner.component';
+import { ContactUsComponent } from './angular-router-and-route-guards/home-router/contact-us/contact-us.component';
+import { PopularComponent } from './angular-router-and-route-guards/home-router/popular/popular.component';
+import { ServicesComponent } from './angular-router-and-route-guards/home-router/services/services.component';
+import { TestimonyComponent } from './angular-router-and-route-guards/home-router/testimony/testimony.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -128,7 +144,23 @@ import { ViewContainerDirective } from './angular-dynamic-components/Directives/
     UsersComponent,
     ConfirmDeleteComponent,
     HomeDynamicComponentComponent,
-    ViewContainerDirective
+    ViewContainerDirective,
+    AngularRouterAndRouteGuardsComponent,
+    AboutRouterComponent,
+    CheckoutRouterComponent,
+    ContactRouterComponent,
+    CoursesRouterComponent,
+    FooterRouterComponent,
+    HeaderRouterComponent,
+    HomeRouterComponent,
+    LoginRouterComponent,
+    NotFoundRouterComponent,
+    CourseDetailComponent,
+    BannerComponent,
+    ContactUsComponent,
+    PopularComponent,
+    ServicesComponent,
+    TestimonyComponent,
   ],
   imports: [
     BrowserModule,
