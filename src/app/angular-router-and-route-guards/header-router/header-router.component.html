@@ -26,10 +26,11 @@
     </div>
     <div class="page-header-primary">
       <div class="page-header-primary-nav">
-        <a routerLink="/Home" routerLinkActive="active">HOME</a>
-        <a [routerLink]="'/About'" routerLinkActive="active">ABOUT</a>
-        <a routerLink="/Contact" routerLinkActive="active">CONTACT</a>
-        <a routerLink="/Courses" routerLinkActive="active">COURSES</a> <!-- this absolute route -->
+        <a routerLink="/Home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+        <a [routerLink]="'/About'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">ABOUT</a>
+        <a routerLink="/Contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">CONTACT</a>
+        <a routerLink="/Courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">COURSES</a>
+        <!-- this absolute route -->
       </div>
       <div class="page-header-login-logout">
         <a href="#">LOGIN</a>

@@ -73,6 +73,7 @@ img {
   border: none;
   background-color: #FF5733;
   color: white;
+  cursor: pointer;
 }
 
 .btn {

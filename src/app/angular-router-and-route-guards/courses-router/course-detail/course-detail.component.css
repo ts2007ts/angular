@@ -196,6 +196,7 @@ hr {
   border: none;
   background-color: #CB4335;
   color: #ddd;
+  cursor: pointer;
 }
 
 .prev-btn {

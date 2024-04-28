@@ -5,6 +5,7 @@ import { AboutRouterComponent } from './angular-router-and-route-guards/about-ro
 import { ContactRouterComponent } from './angular-router-and-route-guards/contact-router/contact-router.component';
 import { CoursesRouterComponent } from './angular-router-and-route-guards/courses-router/courses-router.component';
 import { NotFoundRouterComponent } from './angular-router-and-route-guards/not-found-router/not-found-router.component';
+import { CourseDetailComponent } from './angular-router-and-route-guards/courses-router/course-detail/course-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeRouterComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'About', component: AboutRouterComponent },
   { path: 'Contact', component: ContactRouterComponent },
   { path: 'Courses', component: CoursesRouterComponent },
+  { path: 'Courses/Course/:id', component: CourseDetailComponent },
   { path: '**', component: NotFoundRouterComponent } //Must be last route
 ];
 
