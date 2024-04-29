@@ -23,7 +23,8 @@
           <div class="course-rating"><b>RATINGS:</b> {{ course.rating }}</div>
         </div>
         <div class="course-action-buttons">
-          <button class="btn" routerLink="/Courses/Checkout">BUY NOW</button>
+          <button class="btn" routerLink="/Courses/Checkout" [state]="course">BUY
+            NOW</button><!-- state is used ta pass dynamic data to a route -->
           <button class="btn" [routerLink]="'/Courses/Course/' + course.id">DETAILS</button>
         </div>
       </div>
