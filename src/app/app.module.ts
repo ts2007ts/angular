@@ -52,7 +52,6 @@ import { SidebarComponent } from './angular-services-and-dependency-injection/he
 import { UserDetailComponent } from './angular-services-and-dependency-injection/header/admin/user-detail/user-detail.component';
 import { UserListComponent } from './angular-services-and-dependency-injection/header/admin/user-list/user-list.component';
 import { ServiceHeaderComponent } from './angular-services-and-dependency-injection/header/header.component';
-import { UserService } from './angular-services-and-dependency-injection/Services/user.service';
 import { ObservablesAndRxJSComponent } from './observables-and-rx-js/observables-and-rx-js.component';
 import { NewTaskComponent } from './observables-and-rx-js/new-task/new-task.component';
 import { ShowTaskComponent } from './observables-and-rx-js/show-task/show-task.component';
@@ -81,7 +80,7 @@ import { PopularComponent } from './angular-router-and-route-guards/home-router/
 import { ServicesComponent } from './angular-router-and-route-guards/home-router/services/services.component';
 import { TestimonyComponent } from './angular-router-and-route-guards/home-router/testimony/testimony.component';
 import { AngularPipesComponent } from './angular-pipes/angular-pipes.component';
-import { StudentComponent } from './angular-pipes/Services/student/student.component';
+import { AdminPipesComponent } from './angular-pipes/admin-pipes/admin-pipes.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -164,7 +163,7 @@ import { StudentComponent } from './angular-pipes/Services/student/student.compo
     ServicesComponent,
     TestimonyComponent,
     AngularPipesComponent,
-    StudentComponent,
+    AdminPipesComponent
   ],
   imports: [
     BrowserModule,

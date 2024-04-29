@@ -1,14 +1,13 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { Student } from '../Models/Student';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { StudentService } from '../Services/student.service';
+import { Student } from '../Models/Student';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  selector: 'app-admin-pipes',
+  templateUrl: './admin-pipes.component.html',
+  styleUrl: './admin-pipes.component.css'
 })
-export class AdminComponent {
-
+export class AdminPipesComponent implements OnInit {
   studentService: StudentService = inject(StudentService);
 
   isEditing: boolean = false;
@@ -75,5 +74,4 @@ export class AdminComponent {
 
     this.isEditing = false;
   }
-
 }
