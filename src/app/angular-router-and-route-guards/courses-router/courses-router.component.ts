@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CoursesRouterComponent implements OnInit {
 
   coursesService = inject(CourseService);
+  activeRoute = inject(ActivatedRoute);
   AllCourses: Course[];
 
   private _activeRoute: ActivatedRoute = inject(ActivatedRoute);
@@ -25,7 +26,11 @@ export class CoursesRouterComponent implements OnInit {
       this.searchWord = value.get('search');
 
       if (this.searchWord === undefined || this.searchWord === '' || this.searchWord === null) {
-        this.AllCourses = this.coursesService.courses;
+        // this.coursesService.getAllCourses().subscribe((courses: Course[]) => {
+        //   this.AllCourses = courses;
+        // });
+        this.AllCourses = this.activeRoute.snapshot.data['courses'];
+
       } else {
         this.AllCourses = this.coursesService.courses
           .filter(x => x.title.toLowerCase().includes(this.searchWord.toLowerCase()));

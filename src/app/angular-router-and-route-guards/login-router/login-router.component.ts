@@ -37,7 +37,7 @@ export class LoginRouterComponent implements OnInit {
     if (user === undefined) {
       alert('The login credentials you have entered is not correct ');
     } else {
-      alert('Welcome ' + username + ' ' + 'you have logged in');
+      alert('Welcome ' + user.name + ' ' + 'you have logged in');
       this.router.navigate(['/Courses']);
     }
   }

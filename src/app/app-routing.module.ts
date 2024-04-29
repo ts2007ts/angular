@@ -8,17 +8,20 @@ import { NotFoundRouterComponent } from './angular-router-and-route-guards/not-f
 import { CourseDetailComponent } from './angular-router-and-route-guards/courses-router/course-detail/course-detail.component';
 import { PopularComponent } from './angular-router-and-route-guards/home-router/popular/popular.component';
 import { LoginRouterComponent } from './angular-router-and-route-guards/login-router/login-router.component';
+import { CheckoutRouterComponent } from './angular-router-and-route-guards/checkout-router/checkout-router.component';
+import { CanActivate, CanActivateChild, CanDeactivate, resolve } from './angular-router-and-route-guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeRouterComponent },
   { path: 'Home', component: HomeRouterComponent },
   { path: 'About', component: AboutRouterComponent },
-  { path: 'Contact', component: ContactRouterComponent },
-  { path: 'Courses', component: CoursesRouterComponent },
+  { path: 'Contact', component: ContactRouterComponent, canDeactivate: [(comp: ContactRouterComponent) => { return comp.canExit() }] },
+  { path: 'Courses', component: CoursesRouterComponent, resolve: { courses: resolve } },
   {
-    path: 'Courses', children: [
+    path: 'Courses', canActivateChild: [CanActivateChild], children: [
       { path: 'Course/:id', component: CourseDetailComponent },
-      { path: 'Popular', component: PopularComponent }
+      { path: 'Popular', component: PopularComponent },
+      { path: 'Checkout', component: CheckoutRouterComponent, canActivate: [CanActivate] }
     ]
   },
   { path: 'Login', component: LoginRouterComponent },

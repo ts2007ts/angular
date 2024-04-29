@@ -5,20 +5,21 @@
   <div class="container">
     <form>
       <label for="fname">First Name</label>
-      <input type="text" class="contact-input-el" placeholder="Your name..">
+      <input type="text" class="contact-input-el" placeholder="Your name.." [(ngModel)]="firstName" name="firstname">
 
       <label for="lname">Last Name</label>
-      <input type="text" class="contact-input-el" placeholder="Your last name..">
+      <input type="text" class="contact-input-el" placeholder="Your last name.." [(ngModel)]="lastName" name="lastname">
 
       <label for="country">Country</label>
-      <select id="country" name="country">
+      <select id="country" name="country" [(ngModel)]="country" name="country">
         <option value="australia">Australia</option>
         <option value="canada">Canada</option>
         <option value="usa">USA</option>
       </select>
 
       <label for="subject">Subject</label>
-      <textarea class="contact-input-el" placeholder="Write something.." style="height:200px"></textarea>
+      <textarea class="contact-input-el" placeholder="Write something.." style="height:200px" [(ngModel)]="message"
+        name="message"></textarea>
 
       <input type="submit" value="Submit">
     </form>

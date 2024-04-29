@@ -14,7 +14,7 @@ export class AuthService {
 
   login(username: string, password: string) {
 
-    console.log('Username = ' + username, 'Password = ' + password);
+    //console.log('Username = ' + username, 'Password = ' + password);
     //console.log(this.userService.users);
     let user = this.userService.users.find(user => user.username === username && user.password === password);
     //console.log(user);
