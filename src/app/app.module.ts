@@ -80,6 +80,8 @@ import { ContactUsComponent } from './angular-router-and-route-guards/home-route
 import { PopularComponent } from './angular-router-and-route-guards/home-router/popular/popular.component';
 import { ServicesComponent } from './angular-router-and-route-guards/home-router/services/services.component';
 import { TestimonyComponent } from './angular-router-and-route-guards/home-router/testimony/testimony.component';
+import { AngularPipesComponent } from './angular-pipes/angular-pipes.component';
+import { StudentComponent } from './angular-pipes/Services/student/student.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -161,6 +163,8 @@ import { TestimonyComponent } from './angular-router-and-route-guards/home-route
     PopularComponent,
     ServicesComponent,
     TestimonyComponent,
+    AngularPipesComponent,
+    StudentComponent,
   ],
   imports: [
     BrowserModule,
