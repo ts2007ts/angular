@@ -6,6 +6,8 @@ import { ContactRouterComponent } from './angular-router-and-route-guards/contac
 import { CoursesRouterComponent } from './angular-router-and-route-guards/courses-router/courses-router.component';
 import { NotFoundRouterComponent } from './angular-router-and-route-guards/not-found-router/not-found-router.component';
 import { CourseDetailComponent } from './angular-router-and-route-guards/courses-router/course-detail/course-detail.component';
+import { PopularComponent } from './angular-router-and-route-guards/home-router/popular/popular.component';
+import { LoginRouterComponent } from './angular-router-and-route-guards/login-router/login-router.component';
 
 const routes: Routes = [
   { path: '', component: HomeRouterComponent },
@@ -13,7 +15,14 @@ const routes: Routes = [
   { path: 'About', component: AboutRouterComponent },
   { path: 'Contact', component: ContactRouterComponent },
   { path: 'Courses', component: CoursesRouterComponent },
-  { path: 'Courses/Course/:id', component: CourseDetailComponent },
+  {
+    path: 'Courses', children: [
+      { path: 'Course/:id', component: CourseDetailComponent },
+      { path: 'Popular', component: PopularComponent }
+    ]
+  },
+  { path: 'Login', component: LoginRouterComponent },
+  //{ path: 'Courses/Course/:id', component: CourseDetailComponent },
   { path: '**', component: NotFoundRouterComponent } //Must be last route
 ];
 
