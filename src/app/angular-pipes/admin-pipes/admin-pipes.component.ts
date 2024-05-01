@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { StudentService } from '../Services/student.service';
 import { Student } from '../Models/Student';
+import { resolve } from '../../angular-router-and-route-guards/auth.guard';
 
 @Component({
   selector: 'app-admin-pipes',
@@ -19,6 +20,12 @@ export class AdminPipesComponent implements OnInit {
 
   filterText: string = 'All';
 
+  totalStudents = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(this.students.length);
+    }, 2000);
+  }).then();
+
   //PROPERTIES FOR INSERTING
   @ViewChild('name') Name: ElementRef;
   @ViewChild('gender') Gender: ElementRef;
@@ -36,8 +43,16 @@ export class AdminPipesComponent implements OnInit {
   @ViewChild('editFee') editFee: ElementRef;
 
   ngOnInit() {
-    this.students = this.studentService.students;
+    //this.students = this.studentService.students;
+    this.students = this.studentService.filterStudentByGender(this.filterText);
     this.totalMarks = this.studentService.totalMarks;
+  }
+
+  onFilterChanged(event: any) {
+    //console.log(event.target.value);
+    let filterBy = event.target.value;
+    this.filterText = filterBy;
+    this.students = this.studentService.filterStudentByGender(filterBy);
   }
 
   OnInsertClicked() {
@@ -55,6 +70,8 @@ export class AdminPipesComponent implements OnInit {
       this.Marks.nativeElement.value,
       this.Fee.nativeElement.value
     );
+    //this.students = this.studentService.students; // pointing to the new reference
+    this.students = this.studentService.filterStudentByGender(this.filterText);
     this.isInserting = false;
   }
 
@@ -73,6 +90,8 @@ export class AdminPipesComponent implements OnInit {
     student.course = this.editCourse.nativeElement.value;
     student.marks = this.editMarks.nativeElement.value;
     student.fee = this.editFee.nativeElement.value;
+
+    this.students = this.studentService.filterStudentByGender(this.filterText);
 
     this.isEditing = false;
   }

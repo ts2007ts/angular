@@ -1,7 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false // impure pipe (disadvantage is calling it each time change deduction is happening).....
+  //by default the pipe is pure pipe(disadvantage is not good for sorting )
 })
 export class FilterPipe implements PipeTransform {
 
