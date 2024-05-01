@@ -83,6 +83,7 @@ import { AngularPipesComponent } from './angular-pipes/angular-pipes.component';
 import { AdminPipesComponent } from './angular-pipes/admin-pipes/admin-pipes.component';
 import { PercentagePipe } from './angular-pipes/Pipes/percentage.pipe';
 import { FilterPipe } from './angular-pipes/Pipes/filter.pipe';
+import { AngularTemplateDrivenFormComponent } from './angular-template-driven-form/angular-template-driven-form.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -167,7 +168,8 @@ import { FilterPipe } from './angular-pipes/Pipes/filter.pipe';
     AngularPipesComponent,
     AdminPipesComponent,
     PercentagePipe,
-    FilterPipe
+    FilterPipe,
+    AngularTemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,
