@@ -82,6 +82,7 @@ import { TestimonyComponent } from './angular-router-and-route-guards/home-route
 import { AngularPipesComponent } from './angular-pipes/angular-pipes.component';
 import { AdminPipesComponent } from './angular-pipes/admin-pipes/admin-pipes.component';
 import { PercentagePipe } from './angular-pipes/Pipes/percentage.pipe';
+import { FilterPipe } from './angular-pipes/Pipes/filter.pipe';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -165,7 +166,8 @@ import { PercentagePipe } from './angular-pipes/Pipes/percentage.pipe';
     TestimonyComponent,
     AngularPipesComponent,
     AdminPipesComponent,
-    PercentagePipe
+    PercentagePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
