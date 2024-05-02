@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,8 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AngularTemplateDrivenFormComponent {
 
-  onSubmit(regForm: NgForm) {
-    console.log(regForm);
+  @ViewChild('regForm') form: NgForm;
+
+  firstName: string = '';
+  lastName: string = '';
+  email_: string = '';
+
+  onSubmit() {
+    // console.log(this.form.value.first_name);
+    // console.log(this.form.controls['first_name'].value)
+    console.log(this.form)
   }
 
 }
