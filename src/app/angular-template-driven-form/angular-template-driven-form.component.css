@@ -173,6 +173,7 @@ small {
   background: #E7005E;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 .btn-add-delete {

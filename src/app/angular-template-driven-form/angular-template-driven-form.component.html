@@ -5,29 +5,28 @@
     <div class="column">
 
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="first_name" [(ngModel)]="firstName" required
-          #fname="ngModel" />
+        <input type="text" placeholder="First Name" name="first_name" ngModel required #fname="ngModel" />
         <div>
           <small *ngIf="fname.invalid && fname.touched">*First Name is a required field</small>
-          <span *ngIf="firstName">you entered : {{firstName}}</span>
+          <!-- <span *ngIf="firstName">you entered : {{firstName}}</span> -->
         </div>
       </div>
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="lastName" required #lname="ngModel" />
+        <input type="text" placeholder="Last Name" name="last_name" ngModel required #lname="ngModel" />
         <div>
           <small *ngIf="lname.invalid && lname.touched">*Last Name is a required field</small>
-          <span *ngIf="lastName">you entered : {{lastName}}</span>
+          <!-- <span *ngIf="lastName">you entered : {{lastName}}</span> -->
         </div>
       </div>
 
     </div>
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email" [(ngModel)]="email_" required email #email="ngModel" />
+      <input type="text" placeholder="Email" name="email" ngModel required email #email="ngModel" />
       <div>
         <small *ngIf="email.invalid && email.touched">*Email is a required field</small>
-        <span *ngIf="email_">you entered : {{email_}}</span>
+        <!-- <span *ngIf="email_">you entered : {{email_}}</span> -->
       </div>
     </div>
 
@@ -36,7 +35,17 @@
         <input type="text" placeholder="Phone number" name="phone" ngModel />
       </div>
       <div class="input-box">
-        <input type="date" placeholder="Date of Birth" name="dob" ngModel />
+        <input type="date" placeholder="Date of Birth" name="dob" ngModel required #tempDOB="ngModel" />
+        <small *ngIf="tempDOB.invalid && tempDOB.touched">*Date of Birth is a required field</small>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <input type="text" placeholder="User name" name="username" ngModel required #uname="ngModel" />
+      <button (click)="generateUsername()" type="button" class="btn-gen-username"
+        [disabled]="fname.invalid || lname.invalid || tempDOB.invalid">Create a Username</button>
+      <div>
+        <small *ngIf="uname.invalid && uname.touched">*User Name is a required field</small>
       </div>
     </div>
 
@@ -79,8 +88,14 @@
         <input type="text" placeholder="Region" name="region" ngModel />
         <input type="number" placeholder="Postal code" name="postal" ngModel required />
       </div>
-      <small *ngIf="address.invalid && address.touched">*Some of the required field does not have a valid value</small>
     </div>
+
+    <div class="column">
+      <input type="checkbox" name="agreement" [(ngModel)]="isAgreed" />
+      <label for="agreement">I agree on terms & conditions</label><br>
+    </div>
+
+
 
     <!--HTML for Skills Form Array -->
     <!-- <div class="input-box skills" formArrayName="skills">
@@ -117,7 +132,7 @@
       </div>
     </div>
     <button type="button" class="btn-add-delete">Add Experience</button> -->
-
+    <small *ngIf="address.invalid && address.touched">*Some of the required field does not have a valid value</small>
     <input type="submit" value="Submit" class="submit-btn" [disabled]="regForm.invalid">
 
   </form>
@@ -125,25 +140,25 @@
 
 <!--uncomment below HTML for displaying form data-->
 
-<!-- <section class="user-detail-container">
+<section class="user-detail-container">
   <div class="user-details-container">
     <div class="user-avatar">
-      <p>JS</p>
+      <p>{{ firstName.slice(0,1).toUpperCase() }}{{ lastName.slice(0,1).toUpperCase() }}</p>
     </div>
     <div class="user-details">
       <div class="user-name">
-        <h2>John Smith</h2>
+        <h2>{{ firstName }} {{ lastName }}</h2>
       </div>
-      <p><b>Email:</b> johnsmith@gmail.com</p>
-      <p><b>Username:</b> johnsmith86 </p>
-      <p><b>Date of birth:</b> July 21, 1989</p>
+      <p><b>Email:</b> {{ email_ }}</p>
+      <p><b>Username:</b> {{ username }} </p>
+      <p><b>Date of birth:</b> {{ dateOfBirth }}</p>
       <div class="user-name">
-        <h3>Address</h3>
+        <h3>{{ street1 }}</h3>
       </div>
-      <span>India</span>.
-      <span> New Delhi</span>.
-      <span> NCR</span>.
-      <span> 234565</span>
+      <span>{{ country }}</span>
+      <span> {{ city }}</span>
+      <span> {{ region }}</span>
+      <span> {{ postal }}</span>
     </div>
   </div>
-</section> -->
+</section>
