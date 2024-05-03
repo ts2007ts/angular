@@ -85,6 +85,12 @@ import { PercentagePipe } from './angular-pipes/Pipes/percentage.pipe';
 import { FilterPipe } from './angular-pipes/Pipes/filter.pipe';
 import { AngularTemplateDrivenFormComponent } from './angular-template-driven-form/angular-template-driven-form.component';
 import { AngularReactiveFormComponent } from './angular-reactive-form/angular-reactive-form.component';
+import { AngularHttpClientComponent } from './angular-http-client/angular-http-client.component';
+import { DashboardHttpClientComponent } from './angular-http-client/dashboard-http-client/dashboard-http-client.component';
+import { FooterHttpClientComponent } from './angular-http-client/footer-http-client/footer-http-client.component';
+import { HeaderHttpClientComponent } from './angular-http-client/header-http-client/header-http-client.component';
+import { CreateTaskHttpClientComponent } from './angular-http-client/dashboard-http-client/create-task-http-client/create-task-http-client.component';
+import { TaskDetailsHttpClientComponent } from './angular-http-client/dashboard-http-client/task-details-http-client/task-details-http-client.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -171,7 +177,13 @@ import { AngularReactiveFormComponent } from './angular-reactive-form/angular-re
     PercentagePipe,
     FilterPipe,
     AngularTemplateDrivenFormComponent,
-    AngularReactiveFormComponent
+    AngularReactiveFormComponent,
+    AngularHttpClientComponent,
+    DashboardHttpClientComponent,
+    FooterHttpClientComponent,
+    HeaderHttpClientComponent,
+    CreateTaskHttpClientComponent,
+    TaskDetailsHttpClientComponent
   ],
   imports: [
     BrowserModule,
