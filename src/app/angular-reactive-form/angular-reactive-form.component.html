@@ -34,7 +34,9 @@
           *User name is a required field</small>
         <small *ngIf="reactiveForm.get('username').errors?.['checkUsername'] && reactiveForm.get('username').touched">
           *User name is already taken</small>
-        <button class="btn-gen-username" type="button">
+        <button [disabled]="!(reactiveForm.get('first_name').value)
+        && !(reactiveForm.get('last_name').value)
+        && !(reactiveForm.get('dob').value)" class="btn-gen-username" type="button" (click)="generateUsername()">
           Create a Username
         </button>
       </div>
@@ -134,25 +136,25 @@
 
 <!--uncomment below HTML for displaying form data-->
 
-<!-- <section class="user-detail-container">
+<section class="user-detail-container">
   <div class="user-details-container">
     <div class="user-avatar">
-      <p>JS</p>
+      <p>{{formData.first_name?.slice(0,1)}} {{formData.last_name?.slice(0,1)}}</p>
     </div>
     <div class="user-details">
       <div class="user-name">
-        <h2>John Smith</h2>
+        <h2>{{formData?.first_name}} {{formData?.last_name}}</h2>
       </div>
-      <p><b>Email:</b> johnsmith@gmail.com</p>
-      <p><b>Username:</b> johnsmith86 </p>
-      <p><b>Date of birth:</b> July 21, 1989</p>
+      <p><b>Email:</b> {{formData?.email}}</p>
+      <p><b>Username:</b> {{formData?.username}} </p>
+      <p><b>Date of birth:</b> {{formData?.dob}}</p>
       <div class="user-name">
         <h3>Address</h3>
       </div>
-      <span>India</span>.
-      <span> New Delhi</span>.
-      <span> NCR</span>.
-      <span> 234565</span>
+      <span>{{formData.address?.country}}</span>.
+      <span> {{formData.address?.city}}</span>.
+      <span> {{formData.address?.region}}</span>.
+      <span> {{formData.address?.postal}}</span>
     </div>
   </div>
-</section> -->
+</section>

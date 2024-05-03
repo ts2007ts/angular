@@ -15,6 +15,8 @@ export class AngularReactiveFormComponent implements OnInit {
 
   formStatus: string = '';
 
+  formData: any = {};
+
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
       first_name: new FormControl(null, [Validators.required, CustomValidators.noSpaceAllowed]),
@@ -51,13 +53,38 @@ export class AngularReactiveFormComponent implements OnInit {
     // })
 
     this.reactiveForm.statusChanges.subscribe((status: string) => {
-      console.log(status);
+      //console.log(status);
       this.formStatus = status;
     })
   }
 
   onSubmit() {
-    console.log(this.reactiveForm);
+    //console.log(this.reactiveForm);
+
+    this.formData = this.reactiveForm.value;
+    this.reactiveForm.reset({
+      first_name: null,
+      last_name: null,
+      email: null,
+      username: null,
+      dob: null,
+      gender: 'male',
+      address: {
+        street: null,
+        country: 'India',
+        city: null,
+        region: null,
+        postal: null
+      },
+      skills: [
+        null
+      ],
+      experience: [
+
+      ]
+    });
+
+    console.log('formData is ', this.formData);
   }
 
   addSkill() {
@@ -84,6 +111,66 @@ export class AngularReactiveFormComponent implements OnInit {
   deleteExperience(index: number) {
     const frmArray = <FormArray>this.reactiveForm.get('experience');
     frmArray.removeAt(index);
+  }
+
+  generateUsername() {
+    let username = '';
+    const fName: string = this.reactiveForm.get('first_name').value;
+    const lName: string = this.reactiveForm.get('last_name').value;
+    const dob: string = this.reactiveForm.get('dob').value;
+
+
+    if (fName !== null) {
+      if (fName.length >= 3) {
+        username += fName.slice(0, 3);
+      }
+      else {
+        username += fName;
+      }
+    }
+
+    if (lName !== null) {
+      if (lName.length >= 3) {
+        username += lName.slice(0, 3);
+      }
+      else {
+        username += lName;
+      }
+    }
+
+    let dateTime = new Date(dob);
+    username += dateTime.getFullYear();
+
+    username = username.toLowerCase();
+
+    //console.log(username);
+
+    // this.reactiveForm.setValue({
+    //   first_name: this.reactiveForm.get('first_name').value,
+    //   last_name: this.reactiveForm.get('last_name').value,
+    //   email: this.reactiveForm.get('email').value,
+    //   username: username,
+    //   dob: this.reactiveForm.get('dob').value,
+    //   gender: this.reactiveForm.get('gender').value,
+    //   address: {
+    //     street: this.reactiveForm.get('address.street').value,
+    //     country: this.reactiveForm.get('address.country').value,
+    //     city: this.reactiveForm.get('address.city').value,
+    //     region: this.reactiveForm.get('address.region').value,
+    //     postal: this.reactiveForm.get('address.postal').value
+    //   },
+    //   skills: this.reactiveForm.get('skills').value,
+    //   experience: this.reactiveForm.get('experience').value
+    // })
+
+    //this.reactiveForm.get('username').setValue(username);
+
+    this.reactiveForm.patchValue({
+      username: username,
+      // address: {
+      //   city: 'New Delhi'
+      // }
+    })
   }
 
 }
