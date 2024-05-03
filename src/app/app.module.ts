@@ -9,7 +9,7 @@ import { TopMenuComponent } from './header/top-menu/top-menu.component';
 import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './container/search/search.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from './container/product-list/product-list.component';
 import { ProductComponent } from './container/product-list/product/product.component';
 import { FilterComponent } from './container/product-list/filter/filter.component';
@@ -176,7 +176,8 @@ import { AngularReactiveFormComponent } from './angular-reactive-form/angular-re
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
