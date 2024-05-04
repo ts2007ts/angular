@@ -8,14 +8,17 @@
     </div>
     <div style="width: 50%; text-align: right;">
       <button class="create-task-btn" (click)="openCreateTaskForm()">Create Task</button>
-      <button class="create-task-btn" (click)="fetchAllTasks_()">Fetch Tasks</button>
-      <button class="create-task-btn">Clear Tasks</button>
+      <button class="create-task-btn" (click)="fetchAllTasks()">Fetch Tasks</button>
+      <button class="create-task-btn" (click)="deleteAllTasks()">Clear Tasks</button>
     </div>
   </div>
 
   <hr>
 
   <div class="dashboard-item-container">
+    <div *ngIf="allTasks.length < 1" style="text-align: center;">
+      <h2>No task at database</h2>
+    </div>
     <div class="task-item" *ngFor="let task of allTasks" [ngClass]="'task-' + task.status">
       <div class="task-title">
         <h3>{{ task.title }}</h3>
@@ -30,7 +33,7 @@
         <button class="task-action-btn" title="Edit">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </button>
-        <button class="task-action-btn" title="Delete">
+        <button class="task-action-btn" title="Delete" (click)="deleteTask(task.id)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </div>
