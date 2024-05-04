@@ -91,6 +91,7 @@ import { FooterHttpClientComponent } from './angular-http-client/footer-http-cli
 import { HeaderHttpClientComponent } from './angular-http-client/header-http-client/header-http-client.component';
 import { CreateTaskHttpClientComponent } from './angular-http-client/dashboard-http-client/create-task-http-client/create-task-http-client.component';
 import { TaskDetailsHttpClientComponent } from './angular-http-client/dashboard-http-client/task-details-http-client/task-details-http-client.component';
+import { HttpClientModule } from '@angular/common/http';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -189,7 +190,8 @@ import { TaskDetailsHttpClientComponent } from './angular-http-client/dashboard-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
