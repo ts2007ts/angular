@@ -12,6 +12,9 @@ export class DashboardHttpClientComponent implements OnInit {
   showCreateTaskForm: boolean = false;
   taskService: TaskService = inject(TaskService);
   allTasks: Task[] = [];
+  editMode: boolean = false;
+  selectedTask: Task;
+  currentTaskId: string = '';
 
   ngOnInit(): void {
     this.fetchAllTasks();
@@ -19,17 +22,28 @@ export class DashboardHttpClientComponent implements OnInit {
 
   openCreateTaskForm() {
     this.showCreateTaskForm = true;
+    this.editMode = false;
+    this.selectedTask = { title: '', description: '', assignedTo: '', createdAt: '', priority: '', status: '' }
   }
 
   closeCreateTaskForm() {
     this.showCreateTaskForm = false;
   }
 
-  createTask(task: Task) {
+  createOrUpdateTask(task: Task) {
     //console.log(task);
-    this.taskService.createTask(task);
-    this.closeCreateTaskForm();
-    this.fetchAllTasks();
+    if (this.editMode) { //update
+      console.log('You are updating');
+      this.taskService.editTask(this.currentTaskId, task);
+      this.closeCreateTaskForm();
+      this.fetchAllTasks();
+    } else if (!this.editMode) { //create
+      console.log('You are creating');
+      this.taskService.createTask(task);
+      this.closeCreateTaskForm();
+      this.fetchAllTasks();
+    }
+
   }
 
 
@@ -46,5 +60,14 @@ export class DashboardHttpClientComponent implements OnInit {
   deleteAllTasks() {
     this.taskService.deleteAllTasks();
     this.fetchAllTasks();
+  }
+
+  editTask(id: string | undefined) {
+    this.showCreateTaskForm = true;
+    this.editMode = true;
+    this.selectedTask = this.allTasks.find((task) => { return task.id === id });
+    this.currentTaskId = id;
+
+    //console.log(this.selectedTask);
   }
 }

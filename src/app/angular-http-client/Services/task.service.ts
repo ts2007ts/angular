@@ -59,4 +59,13 @@ export class TaskService {
       //console.log(response);
     })
   }
+
+  editTask(id: string | undefined, task: Task) {
+    this.http.put(
+      'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json',
+      task
+    ).subscribe((response) => {
+
+    })
+  }
 }
