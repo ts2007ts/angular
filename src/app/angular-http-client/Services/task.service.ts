@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Task } from '../Models/Task';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Subject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +11,30 @@ export class TaskService {
   constructor() { }
 
   http: HttpClient = inject(HttpClient);
+  errorSubject = new Subject<HttpErrorResponse>();
+
+  createTask_(task: Task) {
+    //console.log(task);
+    const headers = new HttpHeaders({ 'my-header': 'hello-world' });
+    return this.http.post(
+      'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json',
+      task,
+      { headers: headers }
+    ).subscribe({
+      error: (error) => {
+        this.errorSubject.next(error);
+      }
+    })
+  }
 
   createTask(task: Task) {
     //console.log(task);
     const headers = new HttpHeaders({ 'my-header': 'hello-world' });
-    this.http.post(
+    return this.http.post(
       'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json',
       task,
       { headers: headers }
-    ).subscribe((response) => {
-      //console.log(response);
-    })
+    )
   }
 
   fetchAllTasks() {
@@ -45,27 +58,21 @@ export class TaskService {
   }
 
   deleteTask(id: string | undefined) {
-    this.http.delete(
+    return this.http.delete(
       'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json'
-    ).subscribe((response) => {
-      //console.log(response);
-    })
+    )
   }
 
   deleteAllTasks() {
-    this.http.delete(
+    return this.http.delete(
       'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json'
-    ).subscribe((response) => {
-      //console.log(response);
-    })
+    )
   }
 
   editTask(id: string | undefined, task: Task) {
-    this.http.put(
+    return this.http.put(
       'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json',
       task
-    ).subscribe((response) => {
-
-    })
+    )
   }
 }
