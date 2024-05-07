@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Task } from '../Models/Task';
 import { TaskService } from '../Services/task.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LoggingService } from '../Services/logging.service';
 
 @Component({
   selector: 'app-dashboard-http-client',
@@ -11,10 +12,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class DashboardHttpClientComponent implements OnInit {
 
   showCreateTaskForm: boolean = false;
+  showTaskDetails: boolean = false;
   taskService: TaskService = inject(TaskService);
+  logService: LoggingService = inject(LoggingService);
   allTasks: Task[] = [];
   editMode: boolean = false;
   selectedTask: Task;
+  detailsTask: Task;
   currentTaskId: string = '';
   isLoading: boolean = false;
   errorMessage: string | null = null;
@@ -133,5 +137,21 @@ export class DashboardHttpClientComponent implements OnInit {
     console.log(err.statusText);
     //this.errorMessage = err.error.error;
     this.errorMessage = err.statusText;
+  }
+
+  showCurrentTaskDetails(id: string | undefined) {
+    this.showTaskDetails = true;
+    this.isLoading = true;
+    this.taskService.getTaskDetails(id).subscribe({
+      next: (task: Task) => {
+        //console.log(task);
+        this.detailsTask = task;
+        this.isLoading = false;
+      }
+    })
+  }
+
+  closeDetailView() {
+    this.showTaskDetails = false;
   }
 }

@@ -2,6 +2,9 @@
   (emitTaskData)="createOrUpdateTask($event)" [isEditMode]="editMode"
   [selectedTask]="selectedTask"></app-create-task-http-client>
 
+<app-task-details-http-client *ngIf="showTaskDetails" (closeDetailView)="closeDetailView()"
+  [detailsTask]="detailsTask"></app-task-details-http-client>
+
 <div class="dashboard-container">
   <div *ngIf="errorMessage" class="sb sb-error">{{ errorMessage }}</div>
   <div class="loader" *ngIf="isLoading"></div>
@@ -31,7 +34,7 @@
         <p><b>Priority: </b>{{ task.priority }}</p>
         <p><b>Status: </b>{{ task.status }}</p>
         <div class="task-action-icons">
-          <button class="task-action-btn" title="Detail">
+          <button class="task-action-btn" title="Detail" (click)="showCurrentTaskDetails(task.id)">
             <i class="fa fa-info-circle" aria-hidden="true"></i>
           </button>
           <button class="task-action-btn" title="Edit" (click)="editTask(task.id)">

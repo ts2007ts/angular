@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Task } from '../../Models/Task';
 
 @Component({
   selector: 'app-task-details-http-client',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './task-details-http-client.component.css'
 })
 export class TaskDetailsHttpClientComponent {
+
+  @Output()
+  closeDetailView: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Input()
+  detailsTask: Task;
+
+  onCloseTaskDetail() {
+    this.closeDetailView.emit(false);
+  }
 
 }

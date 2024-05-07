@@ -91,7 +91,9 @@ import { FooterHttpClientComponent } from './angular-http-client/footer-http-cli
 import { HeaderHttpClientComponent } from './angular-http-client/header-http-client/header-http-client.component';
 import { CreateTaskHttpClientComponent } from './angular-http-client/dashboard-http-client/create-task-http-client/create-task-http-client.component';
 import { TaskDetailsHttpClientComponent } from './angular-http-client/dashboard-http-client/task-details-http-client/task-details-http-client.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './angular-http-client/Services/auth-interceptor.service';
+import { LoggingInterceptorService } from './angular-http-client/Services/logging-interceptor.service';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -193,7 +195,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true }
+  ],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
   bootstrap: [AppComponent],
 })
