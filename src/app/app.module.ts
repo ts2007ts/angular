@@ -94,6 +94,16 @@ import { TaskDetailsHttpClientComponent } from './angular-http-client/dashboard-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './angular-http-client/Services/auth-interceptor.service';
 import { LoggingInterceptorService } from './angular-http-client/Services/logging-interceptor.service';
+import { AngularAuthenticationComponent } from './angular-authentication/angular-authentication.component';
+import { DashboardAuthenticationComponent } from './angular-authentication/dashboard-authentication/dashboard-authentication.component';
+import { FooterAuthenticationComponent } from './angular-authentication/footer-authentication/footer-authentication.component';
+import { HeaderAuthenticationComponent } from './angular-authentication/header-authentication/header-authentication.component';
+import { HomeAuthenticationComponent } from './angular-authentication/home-authentication/home-authentication.component';
+import { LoginAuthenticationComponent } from './angular-authentication/login-authentication/login-authentication.component';
+import { CreateTaskAuthenticationComponent } from './angular-authentication/dashboard-authentication/create-task-authentication/create-task-authentication.component';
+import { TaskDetailsAuthenticationComponent } from './angular-authentication/dashboard-authentication/task-details-authentication/task-details-authentication.component';
+import { AuthInterceptorAuthenticationService } from './angular-authentication/Services/auth-interceptor-authentication.service';
+import { LoggingInterceptorAuthenticationService } from './angular-authentication/Services/logging-interceptor-authentication.service';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -186,7 +196,15 @@ import { LoggingInterceptorService } from './angular-http-client/Services/loggin
     FooterHttpClientComponent,
     HeaderHttpClientComponent,
     CreateTaskHttpClientComponent,
-    TaskDetailsHttpClientComponent
+    TaskDetailsHttpClientComponent,
+    AngularAuthenticationComponent,
+    DashboardAuthenticationComponent,
+    FooterAuthenticationComponent,
+    HeaderAuthenticationComponent,
+    HomeAuthenticationComponent,
+    LoginAuthenticationComponent,
+    CreateTaskAuthenticationComponent,
+    TaskDetailsAuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -197,7 +215,9 @@ import { LoggingInterceptorService } from './angular-http-client/Services/loggin
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorAuthenticationService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorAuthenticationService, multi: true }
   ],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
   bootstrap: [AppComponent],
