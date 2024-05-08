@@ -106,6 +106,8 @@ import { AuthInterceptorAuthenticationService } from './angular-authentication/S
 import { LoggingInterceptorAuthenticationService } from './angular-authentication/Services/logging-interceptor-authentication.service';
 import { LoaderComponent } from './angular-authentication/Utility/loader/loader.component';
 import { SnackbarComponent } from './angular-authentication/Utility/snackbar/snackbar.component';
+import { DashboardModule } from './angular-authentication/dashboard-authentication/dashboard.module';
+import { SharedModule } from './shared.module';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -200,22 +202,23 @@ import { SnackbarComponent } from './angular-authentication/Utility/snackbar/sna
     CreateTaskHttpClientComponent,
     TaskDetailsHttpClientComponent,
     AngularAuthenticationComponent,
-    DashboardAuthenticationComponent,
+    //DashboardAuthenticationComponent,
     FooterAuthenticationComponent,
     HeaderAuthenticationComponent,
     HomeAuthenticationComponent,
     LoginAuthenticationComponent,
-    CreateTaskAuthenticationComponent,
-    TaskDetailsAuthenticationComponent,
-    LoaderComponent,
-    SnackbarComponent
+    //CreateTaskAuthenticationComponent,
+    //TaskDetailsAuthenticationComponent,
+    //LoaderComponent,
+    //SnackbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DashboardModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

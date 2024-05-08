@@ -19,57 +19,79 @@ export class TaskAuthenticationService {
   authService: AuthAuthenticationService = inject(AuthAuthenticationService);
 
   CreateTask(task: Task) {
-    const headers = new HttpHeaders({ 'my-header': 'hello-world' })
-    this.http.post<{ name: string }>(
-      'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json',
-      task, { headers: headers }
-    )
-      .pipe(catchError((err) => {
-        //Write the logic to log errors
-        const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
-        this.loggingService.logError(errorObj);
-        return throwError(() => err);
-      }))
-      .subscribe({
-        error: (err) => {
-          this.errorSubject.next(err);
-        }
-      });
+
+    return this.authService.user
+      .pipe(
+        take(1),//it will take only once and unsubscribe
+        exhaustMap(//replace the previous user with the new user
+          user => {
+            return this.http.post<{ name: string }>(
+              'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json',
+              task,
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          }
+        ),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
+      )
   }
 
   DeleteTask(id: string | undefined) {
-    this.http.delete('https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json')
-      .pipe(catchError((err) => {
-        //Write the logic to log errors
-        const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
-        this.loggingService.logError(errorObj);
-        return throwError(() => err);
-      }))
-      .subscribe({
-        error: (err) => {
-          this.errorSubject.next(err);
-        }
-      });
+
+
+    return this.authService.user
+      .pipe(
+        take(1),//it will take only once and unsubscribe
+        exhaustMap(//replace the previous user with the new user
+          user => {
+            return this.http.delete(
+              'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json',
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          }
+        ),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
+      )
+
   }
 
   DeleteAllTasks() {
-    this.http.delete('https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json', { observe: 'events', responseType: 'json' })
-      .pipe(tap((event) => {
-        // console.log(event);
-        if (event.type === HttpEventType.Sent) {
 
-        }
-      }), catchError((err) => {
-        //Write the logic to log errors
-        const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
-        this.loggingService.logError(errorObj);
-        return throwError(() => err);
-      }))
-      .subscribe({
-        error: (err) => {
-          this.errorSubject.next(err);
-        }
-      })
+    return this.authService.user
+      .pipe(
+        take(1),//it will take only once and unsubscribe
+        exhaustMap(//replace the previous user with the new user
+          user => {
+            return this.http.delete(
+              'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks.json',
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          }
+        ),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
+      )
+
   }
 
   GetAllTasks() {
@@ -86,23 +108,28 @@ export class TaskAuthenticationService {
             )
           }
         ),
-        map((response) => {
-          //TRANSFORM DATA
-          let tasks = [];
-          // console.log(response);
-          for (let key in response) {
-            if (response.hasOwnProperty(key)) {
-              tasks.push({ ...response[key], id: key });
+        map(
+          (response) => {
+            //TRANSFORM DATA
+            let tasks = [];
+            // console.log(response);
+            for (let key in response) {
+              if (response.hasOwnProperty(key)) {
+                tasks.push({ ...response[key], id: key });
+              }
             }
-          }
 
-          return tasks;
-        }), catchError((err) => {
-          //Write the logic to log errors
-          const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
-          this.loggingService.logError(errorObj);
-          return throwError(() => err);
-        })
+            return tasks;
+          }
+        ),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
       )
 
     // let headers = new HttpHeaders();
@@ -120,27 +147,58 @@ export class TaskAuthenticationService {
   }
 
   UpdateTask(id: string | undefined, data: Task) {
-    this.http.put('https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json', data)
-      .pipe(catchError((err) => {
-        //Write the logic to log errors
-        const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
-        this.loggingService.logError(errorObj);
-        return throwError(() => err);
-      }))
-      .subscribe({
-        error: (err) => {
-          this.errorSubject.next(err);
-        }
-      });
+
+    return this.authService.user
+      .pipe(
+        take(1),//it will take only once and unsubscribe
+        exhaustMap(//replace the previous user with the new user
+          user => {
+            return this.http.put(
+              'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json',
+              data,
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          }
+        ),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
+      )
+
   }
 
   getTaskDetails(id: string | undefined) {
-    return this.http.get('https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json')
-      .pipe(map((response) => {
-        // console.log(response)
-        let task = {};
-        task = { ...response, id: id }
-        return task;
-      }))
+
+    return this.authService.user
+      .pipe(
+        take(1),//it will take only once and unsubscribe
+        exhaustMap(//replace the previous user with the new user
+          user => {
+            return this.http.get(
+              'https://angularhttpclient-8c62e-default-rtdb.firebaseio.com/tasks/' + id + '.json',
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          }
+        ),
+        map((response) => {
+          // console.log(response)
+          let task = {};
+          task = { ...response, id: id }
+          return task;
+        }),
+        catchError(
+          (err) => {
+            //Write the logic to log errors
+            const errorObj = { statusCode: err.status, errorMessage: err.message, datetime: new Date() }
+            this.loggingService.logError(errorObj);
+            return throwError(() => err);
+          }
+        )
+      )
   }
 }

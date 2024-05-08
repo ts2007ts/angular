@@ -1,3 +1,4 @@
+import { AuthService } from './../../angular-router-and-route-guards/Services/auth.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { TaskAuthenticationService } from '../Services/task-authentication.service';
@@ -66,9 +67,23 @@ export class DashboardAuthenticationComponent implements OnInit, OnDestroy {
 
   CreateOrUpdateTask(data: Task) {
     if (!this.editMode)
-      this.taskService.CreateTask(data);
+      this.taskService.CreateTask(data).subscribe({
+        next: () => {
+          this.fetchAllTasks();
+        },
+        error: (err) => {
+          this.taskService.errorSubject.next(err);
+        }
+      });
     else
-      this.taskService.UpdateTask(this.currentTaskId, data);
+      this.taskService.UpdateTask(this.currentTaskId, data).subscribe({
+        next: () => {
+          this.fetchAllTasks();
+        },
+        error: (err) => {
+          this.taskService.errorSubject.next(err);
+        }
+      });
   }
 
   /*{
@@ -108,11 +123,25 @@ export class DashboardAuthenticationComponent implements OnInit, OnDestroy {
   }
 
   DeleteTask(id: string | undefined) {
-    this.taskService.DeleteTask(id);
+    this.taskService.DeleteTask(id).subscribe({
+      next: () => {
+        this.fetchAllTasks();
+      },
+      error: (err) => {
+        this.taskService.errorSubject.next(err);
+      }
+    });
   }
 
   DeleteAllTask() {
-    this.taskService.DeleteAllTasks();
+    this.taskService.DeleteAllTasks().subscribe({
+      next: () => {
+        this.fetchAllTasks();
+      },
+      error: (err) => {
+        this.taskService.errorSubject.next(err);
+      }
+    });
   }
 
   OnEditTaskClicked(id: string | undefined) {

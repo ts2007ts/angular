@@ -15,7 +15,7 @@ import { LoginAuthenticationComponent } from './angular-authentication/login-aut
 import { DashboardAuthenticationComponent } from './angular-authentication/dashboard-authentication/dashboard-authentication.component';
 
 const routes: Routes = [
-  { path: '', component: HomeRouterComponent },
+  //{ path: '', component: HomeRouterComponent },
   { path: 'Home', component: HomeRouterComponent },
   { path: 'About', component: AboutRouterComponent },
   { path: 'Contact', component: ContactRouterComponent, canDeactivate: [(comp: ContactRouterComponent) => { return comp.canExit() }] },
