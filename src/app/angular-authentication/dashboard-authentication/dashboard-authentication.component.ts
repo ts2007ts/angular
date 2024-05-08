@@ -82,11 +82,12 @@ export class DashboardAuthenticationComponent implements OnInit, OnDestroy {
 
   private fetchAllTasks() {
     this.isLoading = true;
-    this.taskService.GetAlltasks().subscribe({
+    this.taskService.GetAllTasks().subscribe({
       next: (tasks) => {
         this.allTasks = tasks;
         this.isLoading = false;
       }, error: (error) => {
+        // console.log(error);
         this.setErrorMessage(error);
         this.isLoading = false;
       }

@@ -6,8 +6,9 @@
 
   <!--APP NAVBAR-->
   <div class="app-header-navbar">
-    <a routerLink="/">HOME</a>
-    <a routerLink="/dashboard">DASHBOARD</a>
-    <a routerLink="/login">LOGIN</a>
+    <a routerLink="/home_">HOME</a>
+    <a routerLink="/dashboard_" *ngIf="isLoggedIn">DASHBOARD</a>
+    <a routerLink="/login_" *ngIf="!isLoggedIn">LOGIN</a>
+    <a href="#" *ngIf="isLoggedIn" (click)="onLogout()">LOGOUT</a>
   </div>
 </div>

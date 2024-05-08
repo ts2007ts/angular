@@ -9,7 +9,7 @@ import { CourseDetailComponent } from './angular-router-and-route-guards/courses
 import { PopularComponent } from './angular-router-and-route-guards/home-router/popular/popular.component';
 import { LoginRouterComponent } from './angular-router-and-route-guards/login-router/login-router.component';
 import { CheckoutRouterComponent } from './angular-router-and-route-guards/checkout-router/checkout-router.component';
-import { CanActivate, CanActivateChild, CanDeactivate, resolve } from './angular-router-and-route-guards/auth.guard';
+import { CanActivate, CanActivateChild, CanDeactivate, resolve, CanActivateAuthentication } from './angular-router-and-route-guards/auth.guard';
 import { HomeAuthenticationComponent } from './angular-authentication/home-authentication/home-authentication.component';
 import { LoginAuthenticationComponent } from './angular-authentication/login-authentication/login-authentication.component';
 import { DashboardAuthenticationComponent } from './angular-authentication/dashboard-authentication/dashboard-authentication.component';
@@ -30,10 +30,11 @@ const routes: Routes = [
   { path: 'Login', component: LoginRouterComponent },
   //{ path: 'Courses/Course/:id', component: CourseDetailComponent },
 
-
-  { path: '', component: HomeAuthenticationComponent },
-  { path: 'login', component: LoginAuthenticationComponent },
-  { path: 'dashboard', component: DashboardAuthenticationComponent },
+  // routing for authentication component
+  { path: 'home_', component: HomeAuthenticationComponent },
+  { path: 'login_', component: LoginAuthenticationComponent },
+  { path: 'dashboard_', component: DashboardAuthenticationComponent, canActivate: [CanActivateAuthentication] },
+  // routing for authentication component
 
 
   { path: '**', component: NotFoundRouterComponent } //Must be last route

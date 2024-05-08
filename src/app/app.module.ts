@@ -104,6 +104,8 @@ import { CreateTaskAuthenticationComponent } from './angular-authentication/dash
 import { TaskDetailsAuthenticationComponent } from './angular-authentication/dashboard-authentication/task-details-authentication/task-details-authentication.component';
 import { AuthInterceptorAuthenticationService } from './angular-authentication/Services/auth-interceptor-authentication.service';
 import { LoggingInterceptorAuthenticationService } from './angular-authentication/Services/logging-interceptor-authentication.service';
+import { LoaderComponent } from './angular-authentication/Utility/loader/loader.component';
+import { SnackbarComponent } from './angular-authentication/Utility/snackbar/snackbar.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -204,7 +206,9 @@ import { LoggingInterceptorAuthenticationService } from './angular-authenticatio
     HomeAuthenticationComponent,
     LoginAuthenticationComponent,
     CreateTaskAuthenticationComponent,
-    TaskDetailsAuthenticationComponent
+    TaskDetailsAuthenticationComponent,
+    LoaderComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -214,8 +218,8 @@ import { LoggingInterceptorAuthenticationService } from './angular-authenticatio
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorAuthenticationService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorAuthenticationService, multi: true }
   ],

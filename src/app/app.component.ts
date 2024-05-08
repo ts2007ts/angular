@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { AuthAuthenticationService } from './angular-authentication/Services/auth-authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Ekart';
+
+  authService: AuthAuthenticationService = inject(AuthAuthenticationService);
+
+  ngOnInit(): void {
+    this.authService.autoLogin();
+  }
+
+
 }
