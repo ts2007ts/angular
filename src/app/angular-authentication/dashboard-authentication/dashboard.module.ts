@@ -6,6 +6,9 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { LoaderComponent } from "../Utility/loader/loader.component";
 import { SharedModule } from "../../shared.module";
+import { OverviewComponent } from './overview/overview.component';
+import { RouterModule } from "@angular/router";
+import { StatsComponent } from './stats/stats.component';
 
 
 @NgModule({
@@ -13,10 +16,13 @@ import { SharedModule } from "../../shared.module";
     DashboardAuthenticationComponent,
     CreateTaskAuthenticationComponent,
     TaskDetailsAuthenticationComponent,
+    OverviewComponent,
+    StatsComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
 
   ],
   exports: [

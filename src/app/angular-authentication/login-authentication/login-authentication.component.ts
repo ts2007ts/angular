@@ -45,7 +45,7 @@ export class LoginAuthenticationComponent {
         next: (response: AuthResponse) => {
           this.isLoading = false;
           // console.log(' Response' + response);
-          this.router.navigate(['/dashboard_']);
+          this.router.navigate(['/dashboard_/overview_']);
         },
         error: (errMsg) => {
           this.isLoading = false;

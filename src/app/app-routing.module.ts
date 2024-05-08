@@ -13,6 +13,8 @@ import { CanActivate, CanActivateChild, CanDeactivate, resolve, CanActivateAuthe
 import { HomeAuthenticationComponent } from './angular-authentication/home-authentication/home-authentication.component';
 import { LoginAuthenticationComponent } from './angular-authentication/login-authentication/login-authentication.component';
 import { DashboardAuthenticationComponent } from './angular-authentication/dashboard-authentication/dashboard-authentication.component';
+import { OverviewComponent } from './angular-authentication/dashboard-authentication/overview/overview.component';
+import { StatsComponent } from './angular-authentication/dashboard-authentication/stats/stats.component';
 
 const routes: Routes = [
   //{ path: '', component: HomeRouterComponent },
@@ -33,7 +35,12 @@ const routes: Routes = [
   // routing for authentication component
   { path: 'home_', component: HomeAuthenticationComponent },
   { path: 'login_', component: LoginAuthenticationComponent },
-  { path: 'dashboard_', component: DashboardAuthenticationComponent, canActivate: [CanActivateAuthentication] },
+  {
+    path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
+      { path: 'overview_', component: OverviewComponent },
+      { path: 'stats_', component: StatsComponent }
+    ]
+  },
   // routing for authentication component
 
 
