@@ -3,6 +3,7 @@ import { TaskAuthenticationService } from '../../Services/task-authentication.se
 import { Task } from '../../Models/Task';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { CounterService } from '../../Services/counter.service';
 
 @Component({
   selector: 'app-overview',
@@ -16,6 +17,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   http: HttpClient = inject(HttpClient)
   allTasks: Task[] = [];
   taskService: TaskAuthenticationService = inject(TaskAuthenticationService);
+  counterService: CounterService = inject(CounterService);
   currentTaskId: string = '';
   isLoading: boolean = false;
 
@@ -29,6 +31,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
   errorSub: Subscription
 
   ngOnInit() {
+
+    this.counterService.increment('OverView Component');
+
     this.fetchAllTasks();
     this.errorSub = this.taskService.errorSubject.subscribe({
       next: (httpError) => {

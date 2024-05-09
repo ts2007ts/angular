@@ -6,8 +6,15 @@ import { RouterModule, Routes } from "@angular/router";
 
 
 const routes: Routes = [
+  // {
+  //   path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
+  //     { path: 'overview_', component: OverviewComponent },
+  //     { path: 'stats_', component: StatsComponent }
+  //   ]
+  // },
+
   {
-    path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
+    path: '', canActivate: [CanActivateAuthentication], children: [
       { path: 'overview_', component: OverviewComponent },
       { path: 'stats_', component: StatsComponent }
     ]

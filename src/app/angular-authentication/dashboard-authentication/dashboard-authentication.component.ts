@@ -1,5 +1,6 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { CounterService } from '../Services/counter.service';
 
 
 @Component({
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard-authentication.component.html',
   styleUrl: './dashboard-authentication.component.css'
 })
-export class DashboardAuthenticationComponent {
+export class DashboardAuthenticationComponent implements OnInit {
+
+  counterService: CounterService = inject(CounterService);
 
 
+  ngOnInit(): void {
+    this.counterService.increment('Dashboard Authentication Component');
+  }
 }

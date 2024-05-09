@@ -106,7 +106,7 @@ import { AuthInterceptorAuthenticationService } from './angular-authentication/S
 import { LoggingInterceptorAuthenticationService } from './angular-authentication/Services/logging-interceptor-authentication.service';
 import { LoaderComponent } from './angular-authentication/Utility/loader/loader.component';
 import { SnackbarComponent } from './angular-authentication/Utility/snackbar/snackbar.component';
-import { DashboardModule } from './angular-authentication/dashboard-authentication/dashboard.module';
+//import { DashboardModule } from './angular-authentication/dashboard-authentication/dashboard.module';
 import { SharedModule } from './shared.module';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core.module';
@@ -222,7 +222,7 @@ import { AuthModule } from './angular-authentication/login-authentication/auth.m
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    DashboardModule,
+    //DashboardModule,
     CoreModule,
     AuthModule
   ],

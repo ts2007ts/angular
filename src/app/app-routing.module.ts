@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeRouterComponent } from './angular-router-and-route-guards/home-router/home-router.component';
 import { AboutRouterComponent } from './angular-router-and-route-guards/about-router/about-router.component';
 import { ContactRouterComponent } from './angular-router-and-route-guards/contact-router/contact-router.component';
@@ -35,11 +35,21 @@ const routes: Routes = [
   // routing for authentication component
   { path: 'home_', component: HomeAuthenticationComponent },
   { path: 'login_', component: LoginAuthenticationComponent },
-  {
-    path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
-      { path: 'overview_', component: OverviewComponent },
-      { path: 'stats_', component: StatsComponent }
-    ]
+  // {
+  //   path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
+  //     { path: 'overview_', component: OverviewComponent },
+  //     { path: 'stats_', component: StatsComponent }
+  //   ]
+  // },
+  { // this is lazy loading
+    //also we need to remove the module from app.module so it will not bundle
+    path: 'dashboard_', loadChildren: () => import('./angular-authentication/dashboard-authentication/dashboard.module')
+      .then((module) => module.DashboardModule)
+  },
+  { // this is lazy loading
+    //also we need to remove the module from app.module so it will not bundle
+    path: 'login_', loadChildren: () => import('./angular-authentication/login-authentication/auth.module')
+      .then((module) => module.AuthModule)
   },
   // routing for authentication component
 
@@ -48,7 +58,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false, preloadingStrategy: PreloadAllModules })], // pre loading
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
