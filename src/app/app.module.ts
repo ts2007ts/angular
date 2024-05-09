@@ -111,6 +111,8 @@ import { SharedModule } from './shared.module';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core.module';
 import { AuthModule } from './angular-authentication/login-authentication/auth.module';
+import { AngularSignalsComponent } from './angular-signals/angular-signals.component';
+import { SignalsSignalComponent } from './angular-signals/signals-signal/signals-signal.component';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -209,6 +211,8 @@ import { AuthModule } from './angular-authentication/login-authentication/auth.m
     FooterAuthenticationComponent,
     HeaderAuthenticationComponent,
     HomeAuthenticationComponent,
+    AngularSignalsComponent,
+    SignalsSignalComponent,
     //LoginAuthenticationComponent,
     //CreateTaskAuthenticationComponent,
     //TaskDetailsAuthenticationComponent,
