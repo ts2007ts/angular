@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { LoaderComponent } from "./angular-authentication/Utility/loader/loader.component";
 import { FormsModule } from "@angular/forms";
 import { SnackbarComponent } from "./angular-authentication/Utility/snackbar/snackbar.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -9,12 +10,14 @@ import { SnackbarComponent } from "./angular-authentication/Utility/snackbar/sna
     SnackbarComponent
   ],
   imports: [
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   exports: [
     LoaderComponent,
     SnackbarComponent,
-    FormsModule
+    FormsModule,
+    CommonModule
   ]
 })
 

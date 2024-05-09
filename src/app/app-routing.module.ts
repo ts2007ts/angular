@@ -17,7 +17,7 @@ import { OverviewComponent } from './angular-authentication/dashboard-authentica
 import { StatsComponent } from './angular-authentication/dashboard-authentication/stats/stats.component';
 
 const routes: Routes = [
-  //{ path: '', component: HomeRouterComponent },
+  // { path: '', component: HomeRouterComponent },
   { path: 'Home', component: HomeRouterComponent },
   { path: 'About', component: AboutRouterComponent },
   { path: 'Contact', component: ContactRouterComponent, canDeactivate: [(comp: ContactRouterComponent) => { return comp.canExit() }] },

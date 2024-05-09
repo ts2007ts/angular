@@ -7,9 +7,19 @@ import { CommonModule } from "@angular/common";
 import { LoaderComponent } from "../Utility/loader/loader.component";
 import { SharedModule } from "../../shared.module";
 import { OverviewComponent } from './overview/overview.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { StatsComponent } from './stats/stats.component';
+import { CanActivateAuthentication } from "../../angular-router-and-route-guards/auth.guard";
+import { DashboardRouteModule } from "./dashboard-route.module";
 
+// const routes: Routes = [
+//   {
+//     path: 'dashboard_', canActivate: [CanActivateAuthentication], children: [
+//       { path: 'overview_', component: OverviewComponent },
+//       { path: 'stats_', component: StatsComponent }
+//     ]
+//   },
+// ]
 
 @NgModule({
   declarations: [
@@ -29,7 +39,8 @@ import { StatsComponent } from './stats/stats.component';
     DashboardAuthenticationComponent,
     CreateTaskAuthenticationComponent,
     TaskDetailsAuthenticationComponent,
-    SharedModule
+    SharedModule,
+    DashboardRouteModule
 
   ]
 })

@@ -5,7 +5,7 @@ import { tap } from 'rxjs';
 
 export class AuthInterceptorAuthenticationService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    // console.log('Auth Interceptor called!');
+    //console.log('Auth Interceptor called!');
     const modifiedReq = req.clone();
     return next.handle(modifiedReq).pipe(tap((event) => {
       if (event.type === HttpEventType.Response) {

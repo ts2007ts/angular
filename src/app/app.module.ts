@@ -108,6 +108,9 @@ import { LoaderComponent } from './angular-authentication/Utility/loader/loader.
 import { SnackbarComponent } from './angular-authentication/Utility/snackbar/snackbar.component';
 import { DashboardModule } from './angular-authentication/dashboard-authentication/dashboard.module';
 import { SharedModule } from './shared.module';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from './core.module';
+import { AuthModule } from './angular-authentication/login-authentication/auth.module';
 
 //export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE')
 
@@ -206,7 +209,7 @@ import { SharedModule } from './shared.module';
     FooterAuthenticationComponent,
     HeaderAuthenticationComponent,
     HomeAuthenticationComponent,
-    LoginAuthenticationComponent,
+    //LoginAuthenticationComponent,
     //CreateTaskAuthenticationComponent,
     //TaskDetailsAuthenticationComponent,
     //LoaderComponent,
@@ -218,13 +221,16 @@ import { SharedModule } from './shared.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DashboardModule
+    RouterModule,
+    DashboardModule,
+    CoreModule,
+    AuthModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorAuthenticationService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorAuthenticationService, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorAuthenticationService, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorAuthenticationService, multi: true }
   ],
   //providers: [{provide: USER_TOKEN, useClass: UserService}],
   bootstrap: [AppComponent],
