@@ -154,4 +154,21 @@ export class DashboardHttpClientComponent implements OnInit {
   closeDetailView() {
     this.showTaskDetails = false;
   }
+
+  testToPhpBackend() {
+    this.taskService.testToPhpBackend().subscribe({
+      next: (response: Object) => {
+        let allTests = []
+        let tests = response
+
+        for (const key in tests) {
+          if (tests.hasOwnProperty(key)) {
+            allTests.push({ ...tests[key], id: key })
+          }
+        }
+
+        console.log(allTests)
+      }
+    })
+  }
 }

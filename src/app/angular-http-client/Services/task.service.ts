@@ -15,6 +15,21 @@ export class TaskService {
   logService: LoggingService = inject(LoggingService);
   errorSubject = new Subject<HttpErrorResponse>();
 
+
+  testToPhpBackend() {
+
+
+    let headers = new HttpHeaders();
+    headers = headers.append('Access-Control-Allow-Origin', '*');
+
+    return this.http.get(
+      'http://localhost/yii2-advanced/advanced/backend/web/index.php?r=test',
+      {
+        headers: headers
+      }
+    )
+  }
+
   createTask_(task: Task) {
     //console.log(task);
     const headers = new HttpHeaders({ 'my-header': 'hello-world' });
